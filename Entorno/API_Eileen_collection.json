@@ -1,0 +1,318 @@
+{
+	"info": {
+		"_postman_id": "8841d92c-3501-48ef-944e-98f3e75653df",
+		"name": "API eCommerce – Eileen",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1. createUser (PetStore)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Tiempo de respuesta menor a 800ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(800);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": 101,\n  \"username\": \"{{username}}\",\n  \"firstName\": \"Eileen\",\n  \"lastName\": \"QA\",\n  \"email\": \"eileen.qa@ejemplo.com\",\n  \"password\": \"{{password}}\",\n  \"phone\": \"999888777\",\n  \"userStatus\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/user",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2. GetUserPorNombre (PetStore)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/user/{{username}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"user",
+						"{{username}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3. ActualizarUser (PetStore)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": 101,\n  \"username\": \"{{username}}\",\n  \"firstName\": \"Eileen Actualizada\",\n  \"lastName\": \"QA\",\n  \"email\": \"eileen.actualizada@ejemplo.com\",\n  \"password\": \"{{password}}\",\n  \"phone\": \"987654321\",\n  \"userStatus\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/user/{{username}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"user",
+						"{{username}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4. LoginUserPetStore (PetStore)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/user/login?username={{username}}&password={{password}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"user",
+						"login"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "{{username}}"
+						},
+						{
+							"key": "password",
+							"value": "{{password}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5. BorrarUserPorNombre (PetStore)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/user/{{username}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"user",
+						"{{username}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6. LoginApiEcommerce (DummyJSON)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let jsonData = pm.response.json();",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.environment.set(\"token\", jsonData.accessToken);",
+							"console.log(pm.environment.get(\"token\"));"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"username\": \"emilys\",\n  \"password\": \"emilyspass\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseDummy}}/auth/login",
+					"host": [
+						"{{baseDummy}}"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7. GetUserProfileEcommerce (DummyJSON)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let userProfile = pm.response.json();",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"El perfil corresponde a emilys\", function () {",
+							"    pm.expect(userProfile.username).to.eql(\"emilys\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseDummy}}/auth/me",
+					"host": [
+						"{{baseDummy}}"
+					],
+					"path": [
+						"auth",
+						"me"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

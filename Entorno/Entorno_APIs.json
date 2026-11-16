@@ -1,0 +1,12 @@
+name: Entorno_QA_APIs
+values:
+  - key: baseUrl
+    value: 'https://petstore.swagger.io/v2'
+  - key: baseDummy
+    value: 'https://dummyjson.com'
+  - key: username
+    value: eileen
+  - key: password
+    value: Clave1234
+  - key: token
+    value: ''

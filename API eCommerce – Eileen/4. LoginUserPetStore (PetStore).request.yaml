@@ -1,0 +1,19 @@
+$kind: http-request
+url: "{{baseUrl}}/user/login?username={{username}}&password={{password}}"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  username: "{{username}}"
+  password: "{{password}}"
+body:
+  type: json
+  content: ""
+scripts:
+  - type: afterResponse
+    code: |-
+      pm.test("Status code is 200", function () {
+          pm.response.to.have.status(200);
+      });
+    language: text/javascript
+order: 4000

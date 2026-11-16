@@ -1,0 +1,23 @@
+$kind: http-request
+url: "{{baseDummy}}/auth/login"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "username": "emilys",
+      "password": "emilyspass"
+    }
+scripts:
+  - type: afterResponse
+    code: |-
+      let jsonData = pm.response.json();
+      pm.test("Status code is 200", function () {
+          pm.response.to.have.status(200);
+      });
+      pm.environment.set("token", jsonData.accessToken);
+      console.log(pm.environment.get("token"));
+    language: text/javascript
+order: 6000

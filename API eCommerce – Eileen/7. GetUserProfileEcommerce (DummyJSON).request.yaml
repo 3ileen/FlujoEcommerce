@@ -1,0 +1,19 @@
+$kind: http-request
+url: "{{baseDummy}}/auth/me"
+method: GET
+auth:
+  type: bearer
+  credentials:
+    token: "{{token}}"
+scripts:
+  - type: afterResponse
+    code: |-
+      let userProfile = pm.response.json();
+      pm.test("Status code is 200", function () {
+          pm.response.to.have.status(200);
+      });
+      pm.test("El perfil corresponde a emilys", function () {
+          pm.expect(userProfile.username).to.eql("emilys");
+      });
+    language: text/javascript
+order: 7000

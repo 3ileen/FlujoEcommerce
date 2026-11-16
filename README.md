@@ -1,4 +1,4 @@
-# Suite de Pruebas de APIs en Postman (PetStore & eCommerce)
+# Flujo Ecommerce
 
 **Autora:** Eileen Apaza Coaquira  
 **Herramienta:** Postman (Collection v2.1)  
@@ -34,22 +34,22 @@
 ## 3. Evidencias de Ejecución
 
 * **1. Crear Usuario (`POST /user`)**  
-  ![1](images/1.png)
+  ![1](Images/1.png)
 
 * **2. Consultar Usuario (`GET /user/{{username}}`)**  
-  ![2](images/2.png)
+  ![2](Images/2.png)
 
 * **3. Actualizar Usuario (`PUT /user/{{username}}`)**  
-  ![3](images/3.png)
+  ![3](Images/3.png)
 
 * **4. Login PetStore (`GET /user/login`)**  
-  ![4](images/4.png)
+  ![4](Images/4.png)
 
 * **5. Eliminar Usuario (`DELETE /user/{{username}}`)**  
-  ![5](images/5.png)
+  ![5](Images/5.png)
 
 * **6. Login eCommerce (`POST /auth/login`)**  
-  ![6](images/6.png)
+  ![6](Images/6.png)
 
 * **7. Perfil Protegido (`GET /auth/me`)**  
-  ![7](images/7.png)
+  ![7](Images/7.png)

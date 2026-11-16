@@ -1,7 +1,7 @@
 # Flujo Ecommerce
 
-**Autora:** Eileen Apaza Coaquira  
-**Herramienta:** Postman (Collection v2.1)  
+ Eileen Apaza Coaquira  
+
 
 ---
 
